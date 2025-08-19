@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "68a3276fd0b8bb03282a0ce8_96a57255-6417-4879-b4e4-bf24bbcff4d9",
-  "id": "Page1_UpdateUser",
+  "gitSyncId": "68a48099d0b8bb03282a3587_8b6d0a29-5168-4847-a735-d79556e1cc48",
+  "id": "Same Country_GetGenders",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "UPDATE public.\"users\" SET\n    \"gender\" = '{{CreateUserForm.formData.gender}}',\n    \"email\" = '{{CreateUserForm.formData.email}}',\n    \"name\" = '{{CreateUserForm.formData.name}}'\nWHERE id = '{{Table1.selectedRow.id}}'",
+      "body": "SELECT DISTINCT(gender) FROM public.\"users\" WHERE gender <> '';",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,14 +22,10 @@
       "name": "Users Database",
       "pluginId": "postgres-plugin"
     },
-    "dynamicBindingPathList": [
-      {
-        "key": "body"
-      }
-    ],
-    "name": "UpdateUser",
-    "pageId": "Page1",
-    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [],
+    "name": "GetGenders",
+    "pageId": "Same Country",
+    "runBehaviour": "ON_PAGE_LOAD",
     "userSetOnLoad": false
   }
 }

@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "68a3276fd0b8bb03282a0ce8_55765a09-ab08-4190-9a2a-5c60961e25c0",
-  "id": "Page1_GetGenders",
+  "gitSyncId": "68a48099d0b8bb03282a3587_08e447b3-23f6-49da-b918-f0592c405872",
+  "id": "Same Country_DeleteUser",
   "pluginId": "postgres-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT DISTINCT(gender) FROM public.\"users\" WHERE gender <> '';",
+      "body": "DELETE FROM public.\"users\"\n  WHERE id = '{{Table1.selectedRow.id}}'",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,10 +22,14 @@
       "name": "Users Database",
       "pluginId": "postgres-plugin"
     },
-    "dynamicBindingPathList": [],
-    "name": "GetGenders",
-    "pageId": "Page1",
-    "runBehaviour": "ON_PAGE_LOAD",
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
+    "name": "DeleteUser",
+    "pageId": "Same Country",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }
